@@ -11,13 +11,9 @@
 
 using namespace std;
 
-DoorClosed::DoorClosed(){ }
-
-DoorClosed::~DoorClosed(){ }
-
 State* DoorClosed::acceptEvent(Signal s){
 	if (s == btn_push){
-		return new DoorRaising();
+		return new DoorRaising;
 	}
 	return this;
 }

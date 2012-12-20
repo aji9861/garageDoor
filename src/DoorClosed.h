@@ -13,8 +13,6 @@
 
 class DoorClosed: public State {
 public:
-	DoorClosed();
-	virtual ~DoorClosed();
 	State* acceptEvent(Signal s);
 	bool onEntry();
 	bool onExit();

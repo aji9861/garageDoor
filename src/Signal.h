@@ -11,6 +11,10 @@
 enum Signal {
 	btn_push,
 	motor_overcurrent,
+	beam_interupt,
+	door_open,
+	door_closed,
+
 
 };
 

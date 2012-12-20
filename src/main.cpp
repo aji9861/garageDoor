@@ -5,17 +5,21 @@
  *      Author: adam
  */
 
-#include <iostream>
 #include "ControllerStateMachine.h"
+
+#include <iostream>
+#include <pthread.h>
 
 using namespace std;
 
 int main(){
 	ControllerStateMachine *csm = new ControllerStateMachine;
-	csm->addListenerEvent(btn_push);
-	//cout << csm->curState << endl;
+	for (int i = 0; i < 10; i++){
+		csm->addListenerEvent(btn_push);
+		sleep(1);
 
-	cout << "Hello" << endl;
+	}
+	cout << "End simulation" << endl;
 
 	return 0;
 }

@@ -8,6 +8,10 @@
 #include "DoorPausedLowering.h"
 #include "DoorRaising.h"
 
+#include <iostream>
+
+using namespace std;
+
 State* DoorPausedLowering::acceptEvent(Signal s){
 	if (s == btn_push){
 		return new DoorRaising();
@@ -15,3 +19,12 @@ State* DoorPausedLowering::acceptEvent(Signal s){
 	return this;
 }
 
+bool DoorPausedLowering::onEntry(){
+	cout << "Enter door paused lowering" << endl;
+	return true;
+}
+
+bool DoorPausedLowering::onExit(){
+	cout << "Exit door paused lowering" << endl;
+	return true;
+}

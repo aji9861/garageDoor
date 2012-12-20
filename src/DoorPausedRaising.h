@@ -11,7 +11,10 @@
 #include "State.h"
 
 class DoorPausedRaising: public State {
+public:
 	State* acceptEvent(Signal s);
+	bool onEntry();
+	bool onExit();
 };
 
 #endif /* DOORPAUSEDRAISING_H_ */
