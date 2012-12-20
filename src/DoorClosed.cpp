@@ -7,6 +7,9 @@
 
 #include "DoorClosed.h"
 #include "DoorRaising.h"
+#include <iostream>
+
+using namespace std;
 
 DoorClosed::DoorClosed(){ }
 
@@ -20,9 +23,11 @@ State* DoorClosed::acceptEvent(Signal s){
 }
 
 bool DoorClosed::onEntry(){
+	cout << "Enter door closed" << endl;
 	return true;
 }
 
 bool DoorClosed::onExit(){
+	cout << "Exit door closed" << endl;
 	return true;
 }

@@ -6,15 +6,16 @@
  */
 
 #include <iostream>
-#include "State.h"
-#include "DoorClosed.h"
+#include "ControllerStateMachine.h"
 
 using namespace std;
 
 int main(){
-	State *s = new DoorClosed;
-	delete(s);
+	ControllerStateMachine *csm = new ControllerStateMachine;
+	csm->addListenerEvent(btn_push);
+	//cout << csm->curState << endl;
+
 	cout << "Hello" << endl;
 
-	return 1;
+	return 0;
 }
