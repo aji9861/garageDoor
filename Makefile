@@ -1,5 +1,5 @@
 all: 
-	g++ src/*.cpp -o test.out
+	g++ src/*.cpp src/Input/*.cpp -lpthread -o test.out
 
 test: all
 	./test.out
