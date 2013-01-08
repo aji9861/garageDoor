@@ -19,12 +19,12 @@ State* DoorPausedRaising::acceptEvent(Signal s){
 	return this;
 }
 
-bool DoorPausedRaising::onEntry(){
+Signal DoorPausedRaising::onEntry(){
 	cout << "Enter door paused raising" << endl;
-	return true;
+	return no_signal;
 }
 
-bool DoorPausedRaising::onExit(){
+Signal DoorPausedRaising::onExit(){
 	cout << "Exit door paused raising" << endl;
-	return true;
+	return no_signal;
 }

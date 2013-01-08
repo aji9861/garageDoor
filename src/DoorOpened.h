@@ -13,8 +13,8 @@
 class DoorOpened: public State {
 public:
 	State *acceptEvent(Signal s);
-	bool onEntry();
-	bool onExit();
+	Signal onEntry();
+	Signal onExit();
 };
 
 #endif /* DOOROPENED_H_ */

@@ -20,12 +20,12 @@ State* DoorOpened::acceptEvent(Signal s){
 	return this;
 }
 
-bool DoorOpened::onEntry(){
+Signal DoorOpened::onEntry(){
 	cout << "Enter door opened" << endl;
-	return true;
+	return no_signal;
 }
 
-bool DoorOpened::onExit(){
+Signal DoorOpened::onExit(){
 	cout << "Exit door opened" << endl;
-	return true;
+	return no_signal;
 }

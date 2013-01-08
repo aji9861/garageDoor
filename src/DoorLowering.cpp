@@ -30,12 +30,12 @@ State* DoorLowering::acceptEvent(Signal s){
 	return this;
 }
 
-bool DoorLowering::onEntry(){
+Signal DoorLowering::onEntry(){
 	cout << "Enter door lowering" << endl;
-	return true;
+	return motor_down_active;
 }
 
-bool DoorLowering::onExit(){
+Signal DoorLowering::onExit(){
 	cout << "Exit door lowering" << endl;
-	return true;
+	return motor_down_inactive;
 }

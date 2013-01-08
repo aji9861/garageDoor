@@ -14,8 +14,11 @@ enum Signal {
 	beam_interupt,
 	door_open,
 	door_closed,
-
-
+	motor_up_active,
+	motor_up_inactive,
+	motor_down_active,
+	motor_down_inactive,
+	no_signal,
 };
 
 #endif /* SIGNAL_H_ */

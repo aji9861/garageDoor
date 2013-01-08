@@ -15,8 +15,8 @@ public:
 	State();
 	virtual ~State();
 	virtual State* acceptEvent(Signal s);
-	virtual bool onEntry();
-	virtual bool onExit();
+	virtual Signal onEntry();
+	virtual Signal onExit();
 };
 
 #endif /* STATE_H_ */

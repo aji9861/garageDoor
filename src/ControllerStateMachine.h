@@ -11,6 +11,7 @@
 #include <list>
 #include "Signal.h"
 #include "State.h"
+#include "Motor/MotorStateMachine.h"
 
 class ControllerStateMachine {
 public:
@@ -20,6 +21,7 @@ public:
 
 private:
 	State *curState;
+	MotorStateMachine *motor;
 	std::list<Signal> listenerQueue;
 	std::list<Signal> motorQueue;
 

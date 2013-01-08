@@ -19,11 +19,11 @@ State* State::acceptEvent(Signal s){
 	return this;
 }
 
-bool State::onExit(){
-	return true;
+Signal State::onExit(){
+	return no_signal;
 }
 
-bool State::onEntry(){
-	return true;
+Signal State::onEntry(){
+	return no_signal;
 }
 

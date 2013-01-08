@@ -27,13 +27,13 @@ State* DoorRaising::acceptEvent(Signal s){
 	return this;
 }
 
-bool DoorRaising::onEntry(){
+Signal DoorRaising::onEntry(){
 	cout << "Enter door raising" << endl;
-	return true;
+	return motor_up_active;
 }
 
-bool DoorRaising::onExit(){
+Signal DoorRaising::onExit(){
 	cout << "Exit door raising" << endl;
-	return true;
+	return motor_up_inactive;
 }
 

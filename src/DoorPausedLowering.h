@@ -13,8 +13,8 @@
 class DoorPausedLowering: public State {
 public:
 	State* acceptEvent(Signal s);
-	bool onEntry();
-	bool onExit();
+	Signal onEntry();
+	Signal onExit();
 };
 
 #endif /* DOORPAUSEDLOWERING_H_ */

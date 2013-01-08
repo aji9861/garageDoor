@@ -14,8 +14,8 @@
 class DoorClosed: public State {
 public:
 	State* acceptEvent(Signal s);
-	bool onEntry();
-	bool onExit();
+	Signal onEntry();
+	Signal onExit();
 };
 
 #endif /* DOORCLOSED_H_ */

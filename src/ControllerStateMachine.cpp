@@ -9,12 +9,14 @@
 #include "DoorClosed.h"
 
 ControllerStateMachine::ControllerStateMachine() {
+	motor = new MotorStateMachine;
 	curState = new DoorClosed;
 	curState->onEntry();
 }
 
 ControllerStateMachine::~ControllerStateMachine() {
 	delete(curState);
+	motor->~MotorStateMachine();
 }
 
 void ControllerStateMachine::addListenerEvent(Signal s){
@@ -22,12 +24,12 @@ void ControllerStateMachine::addListenerEvent(Signal s){
 
 	State *newState = curState->acceptEvent(s);
 	if (newState != curState){
-		curState->onExit();
+		addMotorEvent(curState->onExit());
 		curState = newState;
-		curState->onEntry();
+		addMotorEvent(curState->onEntry());
 	}
 }
 
 void ControllerStateMachine::addMotorEvent(Signal s){
-	motorQueue.push_back(s);
+	motor->addListenerEvent(s);
 }
