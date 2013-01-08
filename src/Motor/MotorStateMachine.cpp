@@ -9,8 +9,8 @@
 #include "IdleMotorState.h"
 
 MotorStateMachine::MotorStateMachine() {
-	time = 0;
-	curState = new IdleMotorState;
+	timer = 0;
+	curState = new IdleMotorState(this);
 	curState->onEntry();
 }
 
@@ -27,4 +27,24 @@ void MotorStateMachine::addListenerEvent(Signal s){
 		curState = newState;
 		curState->onEntry();
 	}
+}
+
+void MotorStateMachine::setController(ControllerStateMachine* controller){
+	csm = controller;
+}
+
+void MotorStateMachine::sendControlSignal(Signal s){
+	csm->addListenerEvent(s);
+}
+
+void MotorStateMachine::incTimer(){
+	timer++;
+}
+
+void MotorStateMachine::decTimer(){
+	timer--;
+}
+
+int MotorStateMachine::getTimer(){
+	return timer;
 }

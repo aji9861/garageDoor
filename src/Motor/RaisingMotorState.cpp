@@ -14,21 +14,39 @@
 
 using namespace std;
 
+RaisingMotorState::RaisingMotorState(MotorStateMachine *machine)
+	: MotorState(machine){
+	msm = machine;
+}
+
+void* raiseMotor(void* motorMachine){
+	MotorStateMachine* motor = (MotorStateMachine *) motorMachine;
+	while(motor->getTimer() < 10){
+		sleep(1);
+		motor->incTimer();
+		cout << "Motor Timer: " << motor->getTimer() << endl;
+	}
+	motor->sendControlSignal(door_open);
+	return NULL;
+}
+
 MotorState* RaisingMotorState::acceptEvent(Signal s){
 	if (s == motor_up_inactive){
-		return new IdleMotorState;
+		return new IdleMotorState(msm);
 	} else if (s == motor_down_active){
-		return new ErrorMotorState;
+		return new ErrorMotorState(msm);
 	}
 	return this;
 }
 
 bool RaisingMotorState::onEntry(){
 	cout << "Motor raising" << endl;
+	pthread_create(&timer_t, NULL, raiseMotor, msm);
 	return true;
 }
 
 bool RaisingMotorState::onExit(){
 	cout << "Motor is no longer raising" << endl;
+	pthread_cancel(timer_t);
 	return true;
 }

@@ -11,18 +11,28 @@
 #include <list>
 #include "../Signal.h"
 #include "MotorState.h"
+#include "../ControllerStateMachine.h"
+
+class MotorState;
+class ControllerStateMachine;
 
 class MotorStateMachine {
-int time;
 
 public:
 	MotorStateMachine();
 	~MotorStateMachine();
 	void addListenerEvent(Signal s);
+	void incTimer();
+	void decTimer();
+	int getTimer();
+	void setController(ControllerStateMachine* controller);
+	void sendControlSignal(Signal s);
 
 private:
 	MotorState *curState;
 	std::list<Signal> motorQueue;
+	int timer;
+	ControllerStateMachine* csm;
 };
 
 #endif /* MOTORSTATEMACHINE_H_ */

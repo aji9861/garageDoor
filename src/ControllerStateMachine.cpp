@@ -12,6 +12,7 @@ ControllerStateMachine::ControllerStateMachine() {
 	motor = new MotorStateMachine;
 	curState = new DoorClosed;
 	curState->onEntry();
+	motor->setController(this);
 }
 
 ControllerStateMachine::~ControllerStateMachine() {

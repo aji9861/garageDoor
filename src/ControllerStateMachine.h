@@ -13,6 +13,8 @@
 #include "State.h"
 #include "Motor/MotorStateMachine.h"
 
+class MotorStateMachine;
+
 class ControllerStateMachine {
 public:
 	ControllerStateMachine();

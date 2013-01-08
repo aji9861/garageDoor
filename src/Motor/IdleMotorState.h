@@ -12,6 +12,7 @@
 
 class IdleMotorState: public MotorState {
 public:
+	IdleMotorState(MotorStateMachine *machine);
 	MotorState* acceptEvent(Signal s);
 	bool onEntry();
 	bool onExit();
