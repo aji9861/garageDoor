@@ -15,7 +15,7 @@ State::~State() {
 	//delete(this);
 }
 
-State* State::acceptEvent(Signal s){
+State* State::acceptEvent(StateSignal s){
 	return this;
 }
 
