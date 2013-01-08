@@ -20,14 +20,18 @@ public:
 	ControllerStateMachine();
 	~ControllerStateMachine();
 	void addListenerEvent(StateSignal s);
+	bool isRunning();
+	void checkController();
 
 private:
 	State *curState;
 	MotorStateMachine *motor;
+	bool running;
 	std::list<StateSignal> listenerQueue;
 	std::list<StateSignal> motorQueue;
 
 	void addMotorEvent(StateSignal s);
+	void startController();
 };
 
 #endif /* CONTROLLERSTATEMACHINE_H_ */
