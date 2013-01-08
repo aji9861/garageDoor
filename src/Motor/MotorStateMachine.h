@@ -11,9 +11,12 @@
 #include <list>
 #include "../Signal.h"
 #include "MotorState.h"
+#include "../ControllerStateMachine.h"
+
+class MotorState;
+class ControllerStateMachine;
 
 class MotorStateMachine {
-int time;
 bool running;
 
 public:
@@ -23,11 +26,18 @@ public:
 	void startMotor();
 	bool isRunning();
 	void checkMotor();
+	void incTimer();
+	void decTimer();
+	int getTimer();
+	void setController(ControllerStateMachine* controller);
+	void sendControlSignal(Signal s);
 
 
 private:
 	MotorState *curState;
 	std::list<Signal> motorQueue;
+	int timer;
+	ControllerStateMachine* csm;
 };
 
 #endif /* MOTORSTATEMACHINE_H_ */

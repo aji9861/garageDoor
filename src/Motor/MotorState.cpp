@@ -7,8 +7,8 @@
 
 #include "MotorState.h"
 
-MotorState::MotorState(){
-
+MotorState::MotorState(MotorStateMachine *machine){
+	msm = machine;
 }
 
 MotorState::~MotorState() {

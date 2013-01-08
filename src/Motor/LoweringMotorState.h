@@ -9,9 +9,12 @@
 #define LOWERINGMOTORSTATE_H_
 
 #include "MotorState.h"
+#include <pthread.h>
 
 class LoweringMotorState: public MotorState {
+pthread_t timer_t;
 public:
+	LoweringMotorState(MotorStateMachine *machine);
 	MotorState* acceptEvent(Signal s);
 	bool onEntry();
 	bool onExit();

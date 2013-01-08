@@ -13,11 +13,16 @@
 
 using namespace std;
 
+IdleMotorState::IdleMotorState(MotorStateMachine *machine)
+	: MotorState(machine){
+	msm = machine;
+}
+
 MotorState* IdleMotorState::acceptEvent(Signal s){
 	if (s == motor_up_active){
-		return new RaisingMotorState;
+		return new RaisingMotorState(msm);
 	} else if (s == motor_down_active){
-		return new LoweringMotorState;
+		return new LoweringMotorState(msm);
 	}
 	return this;
 }

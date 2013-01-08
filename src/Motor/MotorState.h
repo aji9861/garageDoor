@@ -9,10 +9,15 @@
 #define MOTORSTATE_H_
 
 #include "../Signal.h"
+#include "MotorStateMachine.h"
+
+class MotorStateMachine;
 
 class MotorState {
+protected:
+	MotorStateMachine *msm;
 public:
-	MotorState();
+	MotorState(MotorStateMachine *machine);
 	virtual ~MotorState();
 	virtual MotorState* acceptEvent(Signal s);
 	virtual bool onEntry();

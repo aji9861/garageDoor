@@ -12,6 +12,7 @@
 
 class ErrorMotorState: public MotorState {
 public:
+	ErrorMotorState(MotorStateMachine *machine);
 	MotorState* acceptEvent(Signal s);
 	bool onEntry();
 	bool onExit();

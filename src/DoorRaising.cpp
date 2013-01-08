@@ -36,4 +36,3 @@ Signal DoorRaising::onExit(){
 	cout << "Exit door raising" << endl;
 	return motor_up_inactive;
 }
-
