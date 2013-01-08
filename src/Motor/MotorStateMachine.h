@@ -14,11 +14,16 @@
 
 class MotorStateMachine {
 int time;
+bool running;
 
 public:
 	MotorStateMachine();
 	~MotorStateMachine();
 	void addListenerEvent(Signal s);
+	void startMotor();
+	bool isRunning();
+	void checkMotor();
+
 
 private:
 	MotorState *curState;
