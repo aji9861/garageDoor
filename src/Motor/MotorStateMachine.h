@@ -9,10 +9,12 @@
 #define MOTORSTATEMACHINE_H_
 
 #include <list>
-#include "Signal.h"
+#include "../Signal.h"
 #include "MotorState.h"
 
 class MotorStateMachine {
+int time;
+
 public:
 	MotorStateMachine();
 	~MotorStateMachine();

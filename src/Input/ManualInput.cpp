@@ -32,14 +32,14 @@ void* getInput(void* csm){
 		}
 	}
 
+	return NULL;
 }
 
 
 void ManualInput::readInput(){
 	pthread_t input_t;
 
-	int buttonThread = pthread_create(&input_t, NULL,
-			getInput, csm);
+	pthread_create(&input_t, NULL, getInput, csm);
 
 	pthread_join(input_t, NULL);
 

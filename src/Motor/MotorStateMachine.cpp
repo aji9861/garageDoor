@@ -9,6 +9,7 @@
 #include "IdleMotorState.h"
 
 MotorStateMachine::MotorStateMachine() {
+	time = 0;
 	curState = new IdleMotorState;
 	curState->onEntry();
 }

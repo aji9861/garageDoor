@@ -16,7 +16,7 @@ ControllerStateMachine::ControllerStateMachine() {
 
 ControllerStateMachine::~ControllerStateMachine() {
 	delete(curState);
-	motor->~MotorStateMachine();
+	delete(motor);
 }
 
 void ControllerStateMachine::addListenerEvent(Signal s){
