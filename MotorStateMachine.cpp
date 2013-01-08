@@ -17,6 +17,7 @@ MotorStateMachine::MotorStateMachine() {
 	timer = 0;
 	curState = new IdleMotorState(this);
 	curState->onEntry();
+	startMotor();
 }
 
 MotorStateMachine::~MotorStateMachine() {
@@ -39,13 +40,11 @@ void* runMotor(void* motor){
 	return NULL;
 }
 
-//void MotorStateMachine::startMotor(){
-//	pthread_t motor_t;
+void MotorStateMachine::startMotor(){
+	pthread_t motor_t;
 
-//	pthread_create(&motor_t, NULL, runMotor, this);
-
-//	pthread_join(motor_t, NULL);
-//}
+	pthread_create(&motor_t, NULL, runMotor, this);
+}
 
 void MotorStateMachine::checkMotor(){
 	if (!motorQueue.empty()){

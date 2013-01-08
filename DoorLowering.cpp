@@ -32,10 +32,12 @@ State* DoorLowering::acceptEvent(StateSignal s){
 
 StateSignal DoorLowering::onEntry(){
 	cout << "Enter door lowering" << endl;
+	cout << "IR beam on" << endl;
 	return motor_down_active;
 }
 
 StateSignal DoorLowering::onExit(){
+	cout << "IR beam off" << endl;
 	cout << "Exit door lowering" << endl;
 	return motor_down_inactive;
 }
