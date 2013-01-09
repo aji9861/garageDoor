@@ -26,6 +26,6 @@ StateSignal DoorOpened::onEntry(){
 }
 
 StateSignal DoorOpened::onExit(){
-	cout << "Exit door opened" << endl;
+	//cout << "Exit door opened" << endl;
 	return no_signal;
 }

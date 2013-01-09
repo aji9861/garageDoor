@@ -33,6 +33,6 @@ bool IdleMotorState::onEntry(){
 }
 
 bool IdleMotorState::onExit(){
-	cout << "Motor is no longer idle" << endl;
+	//cout << "Motor is no longer idle" << endl;
 	return true;
 }

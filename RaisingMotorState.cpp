@@ -47,7 +47,7 @@ bool RaisingMotorState::onEntry(){
 }
 
 bool RaisingMotorState::onExit(){
-	cout << "Motor is no longer raising" << endl;
+	//cout << "Motor is no longer raising" << endl;
 	pthread_cancel(timer_t);
 	return true;
 }

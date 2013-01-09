@@ -22,7 +22,7 @@ State* DoorLowering::acceptEvent(StateSignal s){
 		return new DoorRaising;
 	}
 	else if (s == beam_interupt){
-		return new DoorPausedLowering;
+		return new DoorRaising;
 	}
 	else if (s == door_closed){
 		return new DoorClosed;
@@ -38,6 +38,6 @@ StateSignal DoorLowering::onEntry(){
 
 StateSignal DoorLowering::onExit(){
 	cout << "IR beam off" << endl;
-	cout << "Exit door lowering" << endl;
+	//cout << "Exit door lowering" << endl;
 	return motor_down_inactive;
 }

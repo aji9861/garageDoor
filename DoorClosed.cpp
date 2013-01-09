@@ -24,6 +24,6 @@ StateSignal DoorClosed::onEntry(){
 }
 
 StateSignal DoorClosed::onExit(){
-	cout << "Exit door closed" << endl;
+	//cout << "Exit door closed" << endl;
 	return no_signal;
 }

@@ -34,6 +34,6 @@ bool ErrorMotorState::onEntry(){
 }
 
 bool ErrorMotorState::onExit(){
-	cout << "Motor is no longer errored" << endl;
+	//cout << "Motor is no longer errored" << endl;
 	return true;
 }

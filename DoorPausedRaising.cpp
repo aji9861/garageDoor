@@ -25,6 +25,6 @@ StateSignal DoorPausedRaising::onEntry(){
 }
 
 StateSignal DoorPausedRaising::onExit(){
-	cout << "Exit door paused raising" << endl;
+	//cout << "Exit door paused raising" << endl;
 	return no_signal;
 }
