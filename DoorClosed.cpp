@@ -5,9 +5,8 @@
  *      Author: adam
  */
 
-#include "DoorClosed.h"		//used in state changes
-#include "DoorRaising.h"	//same
-
+#include "DoorClosed.h"		//used for inheritance
+#include "DoorRaising.h"	//used in state changes
 #include <iostream>			//used to output to terminal
 using namespace std;		//same
 
