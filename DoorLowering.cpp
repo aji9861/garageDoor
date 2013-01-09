@@ -5,14 +5,13 @@
  *      Author: adam
  */
 
-#include "DoorLowering.h"
-#include "DoorPausedLowering.h"
-#include "DoorRaising.h"
-#include "DoorClosed.h"
+#include "DoorLowering.h"		//used for state changes
+#include "DoorPausedLowering.h"	//same
+#include "DoorRaising.h"		//same
+#include "DoorClosed.h"			//same
 
-#include <iostream>
-
-using namespace std;
+#include <iostream> 			//used to output to terminal
+using namespace std;			//same
 
 State* DoorLowering::acceptEvent(StateSignal s){
 	/* method called to receive signals,
