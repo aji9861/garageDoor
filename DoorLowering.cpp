@@ -15,6 +15,14 @@
 using namespace std;
 
 State* DoorLowering::acceptEvent(StateSignal s){
+	/* method called to receive signals,
+	 * returns:
+	 * signal == btn_push: DoorPausedLowering state
+	 * signal == motor_overcurrent: DoorRaising state
+	 * signal == beam_interupt: DoorRaising state
+	 * signal == door_closed: DoorClosed state
+	 * signal == anything else: self
+	 */
 	if (s == btn_push){
 		return new DoorPausedLowering;
 	}
@@ -31,13 +39,19 @@ State* DoorLowering::acceptEvent(StateSignal s){
 }
 
 StateSignal DoorLowering::onEntry(){
+	/* method called on entry to the state, declares that the state has been
+	 * entered, and turns on the ir beam.  return should make the door start
+	 * lowering
+	 */
 	cout << "Enter door lowering" << endl;
 	cout << "IR beam on" << endl;
 	return motor_down_active;
 }
 
 StateSignal DoorLowering::onExit(){
+	/* method called on exit to the state.  ir beam is turned off.  return
+	 * should make the motor stop lowering.
+	 */
 	cout << "IR beam off" << endl;
-	//cout << "Exit door lowering" << endl;
 	return motor_down_inactive;
 }
