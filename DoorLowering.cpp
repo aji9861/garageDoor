@@ -5,8 +5,8 @@
  *      Author: adam
  */
 
-#include "DoorLowering.h"		//used for state changes
-#include "DoorPausedLowering.h"	//same
+#include "DoorLowering.h"		//used for inheritance
+#include "DoorPausedLowering.h"	//used for state changes
 #include "DoorRaising.h"		//same
 #include "DoorClosed.h"			//same
 

@@ -5,7 +5,7 @@
  *      Author: adam
  */
 
-#include "ControllerStateMachine.h"	//used to send messages
+#include "ControllerStateMachine.h"	//used for inheritance
 #include "DoorClosed.h"				//to create starting state
 #include <pthread.h>				//for pthread_create
 #include <unistd.h>					//for sleep()
@@ -70,14 +70,14 @@ void ControllerStateMachine::checkController(){
 }
 
 void ControllerStateMachine::startController(){
-	/* launches pthread to monitor the signal queue*/
+	/* launches pthread to monitor the signal queue 
+	 */
 	pthread_t controller_t;
 	pthread_create(&controller_t, NULL, runController, this);
 }
 
-
-
 void ControllerStateMachine::addMotorEvent(StateSignal s){
-	/* sends a generated signal to the motor */
+	/* sends a generated signal to the motor 
+	 */
 	motor->addListenerEvent(s);
 }

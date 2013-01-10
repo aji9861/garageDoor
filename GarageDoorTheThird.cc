@@ -5,28 +5,22 @@
  *      Author: adam
  */
 
-#include <cstdlib>
-#include <iostream>
-#include <pthread.h>
+#include <cstdlib>					//used for input
+#include <iostream>					//used for output
+#include <pthread.h>				//used for pthreads
 
-#include "ControllerStateMachine.h"
-#include "InputInterface.h"
-#include "ManualInput.h"
+#include "ControllerStateMachine.h"	//used to launch the state machine
+#include "InputInterface.h"			//used for input
+#include "ManualInput.h"			//used for input
 
-
-using namespace std;
+using namespace std;				//used for output
 
 int main(int argc, char *argv[]) {
+	/* main method */
 	ControllerStateMachine *csm = new ControllerStateMachine;
 	InputInterface *input = new ManualInput(csm);
 
 	input->readInput();
-
-	/*for (int i = 0; i < 10; i++){
-		csm->addListenerEvent(btn_push);
-		sleep(1);
-
-	}*/
 	cout << "End simulation" << endl;
 
 	return EXIT_SUCCESS;

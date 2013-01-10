@@ -5,19 +5,21 @@
  *      Author: adam
  */
 
-#include "ManualInput.h"
-#include "StateSignal.h"
-
-#include <iostream>
-#include <pthread.h>
-using namespace std;
+#include "ManualInput.h"	//used for input
+#include "StateSignal.h"	//used to pass signals
+#include <iostream>			//used for output
+#include <pthread.h>		//used for pthreads
+using namespace std;		//used for output
 
 ManualInput::ManualInput(ControllerStateMachine *machine){
+	/* contructor
+	 */
 	csm = machine;
 }
 
-
 void* getInput(void* csm){
+	/* used to get input
+	 */
 	char in;
 	while(!cin.eof()){
 		cin.get(in);
@@ -37,6 +39,8 @@ void* getInput(void* csm){
 
 
 void ManualInput::readInput(){
+	/* starts up pthreads
+	 */
 	pthread_t input_t;
 
 	pthread_create(&input_t, NULL, getInput, csm);

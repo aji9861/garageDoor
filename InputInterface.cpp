@@ -5,7 +5,7 @@
  *      Author: adam
  */
 
-#include "InputInterface.h"
+#include "InputInterface.h"	//used for inheritance
 
 void InputInterface::readInput(){
 
