@@ -5,17 +5,14 @@
  *      Author: adam
  */
 
-#include "DoorPausedLowering.h"	//used for inheritance
-#include "DoorRaising.h"		//used for state changes
-#include <iostream>				//used for output to terminal
-using namespace std;			//same
+#include "DoorPausedLowering.h"
+#include "DoorRaising.h"
+
+#include <iostream>
+
+using namespace std;
 
 State* DoorPausedLowering::acceptEvent(StateSignal s){
-	/* method called to receive signals,
-	 * returns:
-	 * signal == btn_push: DoorRaising state
-	 * signal == anything else: self
-	 */
 	if (s == btn_push){
 		return new DoorRaising();
 	}
@@ -23,16 +20,11 @@ State* DoorPausedLowering::acceptEvent(StateSignal s){
 }
 
 StateSignal DoorPausedLowering::onEntry(){
-	/* method called on entry to the state, declares that the state has been
-	 * entered.  return should not adjust state of the motor
-	 */
-	cout << "Enter door paused" << endl;
+	cout << "Enter door paused lowering" << endl;
 	return no_signal;
 }
 
 StateSignal DoorPausedLowering::onExit(){
-	/* method called on exit to the state.  return should not adjust state of
-	 * the motor
-	 */
+	cout << "Exit door paused lowering" << endl;
 	return no_signal;
 }

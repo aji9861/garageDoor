@@ -6,23 +6,21 @@
  */
 
 
-#include "RaisingMotorState.h"	//used for inheritance
-#include "IdleMotorState.h"		//used for state change
-#include "ErrorMotorState.h"	//same
-#include <unistd.h>				//used for sleep
-#include <iostream>				//used for output
-using namespace std;			//same
+#include "RaisingMotorState.h"
+#include "IdleMotorState.h"
+#include "ErrorMotorState.h"
+#include <unistd.h>
+
+#include <iostream>
+
+using namespace std;
 
 RaisingMotorState::RaisingMotorState(MotorStateMachine *machine)
 	: MotorState(machine){
-		/* constructor
-		 */
 	msm = machine;
 }
 
 void* raiseMotor(void* motorMachine){
-	/* method for counting down while the door lowers 
-	 */
 	MotorStateMachine* motor = (MotorStateMachine *) motorMachine;
 	while(motor->getTimer() < 10){
 		sleep(1);
@@ -34,12 +32,6 @@ void* raiseMotor(void* motorMachine){
 }
 
 MotorState* RaisingMotorState::acceptEvent(StateSignal s){
-	/* method called to receive signals,
-	 * returns:
-	 * signal == motor_up_inactive: IdleMotorState state
-	 * signal == motor_down_active: ErrorMotorState state
-	 * signal == anything else: self
-	 */
 	if (s == motor_up_inactive){
 		return new IdleMotorState(msm);
 	} else if (s == motor_down_active){
@@ -49,18 +41,13 @@ MotorState* RaisingMotorState::acceptEvent(StateSignal s){
 }
 
 bool RaisingMotorState::onEntry(){
-	/* method called on entry to the state, declares that the state has been
-	 * entered.  return should not adjust state of the motor
-	 */
 	cout << "Motor raising" << endl;
 	pthread_create(&timer_t, NULL, raiseMotor, msm);
 	return true;
 }
 
 bool RaisingMotorState::onExit(){
-	/* method called on exit to the state.  return should not adjust state of
-	 * the motor
-	 */
+	//cout << "Motor is no longer raising" << endl;
 	pthread_cancel(timer_t);
 	return true;
 }

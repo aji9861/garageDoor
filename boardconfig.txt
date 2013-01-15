@@ -1,0 +1,14 @@
+A2-1  to ground
+
+INPUTS
+A2-6  to 1  DIO A0		motor up
+A2-8  to 2  DIO A1   	motor down
+A2-10 to 3  DIO A2		IR beam on
+A2-12 to 4  DIO A3		Reset
+
+OUTPUTS
+A2-5  to 9  DIO B0		Full open
+A2-7  to 10 DIO B1  	Full closed
+A2-9  to 11 DIO B2		IR broken
+A2-11 to 12 DIO B3		Overcurrent
+A2-13 to 13 DIO B4		Remote push button

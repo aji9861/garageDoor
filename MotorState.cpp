@@ -5,11 +5,9 @@
  *      Author: wkb6223
  */
 
-#include "MotorState.h"		//used for inheritance
+#include "MotorState.h"
 
 MotorState::MotorState(MotorStateMachine *machine){
-	/* constructor 
-	 */
 	msm = machine;
 }
 
@@ -18,19 +16,13 @@ MotorState::~MotorState() {
 }
 
 MotorState* MotorState::acceptEvent(StateSignal s){
-	/* called to add a signal to the queue 
-	 */
 	return this;
 }
 
 bool MotorState::onExit(){
-	/* called when a state exits 
-	 */
 	return true;
 }
 
 bool MotorState::onEntry(){
-	/* called when the state enters 
-	 */
 	return true;
 }
