@@ -6,12 +6,19 @@
  */
 
 #include "ControllerStateMachine.h"
+#include "MotorStateMachine.h"
 #include "DoorClosed.h"
+#include "HardwareMotor.h"
 #include <pthread.h>
 #include <unistd.h>
 
-ControllerStateMachine::ControllerStateMachine() {
-	motor = new MotorStateMachine;
+ControllerStateMachine::ControllerStateMachine(bool simulated) {
+	if (simulated){
+		motor = new MotorStateMachine;
+	}
+	else{
+		motor = new HardwareMotor;
+	}
 	running = true;
 	curState = new DoorClosed;
 	curState->onEntry();
@@ -56,6 +63,7 @@ void ControllerStateMachine::startController(){
 	pthread_t controller_t;
 
 	pthread_create(&controller_t, NULL, runController, this);
+	addMotorEvent(motor_up_active);
 }
 
 

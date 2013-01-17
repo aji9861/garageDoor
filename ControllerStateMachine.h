@@ -11,13 +11,13 @@
 #include <list>
 #include "StateSignal.h"
 #include "State.h"
-#include "MotorStateMachine.h"
+#include "MotorInterface.h"
 
-class MotorStateMachine;
+class MotorInterface;
 
 class ControllerStateMachine {
 public:
-	ControllerStateMachine();
+	ControllerStateMachine(bool simualted);
 	~ControllerStateMachine();
 	void addListenerEvent(StateSignal s);
 	bool isRunning();
@@ -25,7 +25,7 @@ public:
 
 private:
 	State *curState;
-	MotorStateMachine *motor;
+	MotorInterface *motor;
 	bool running;
 	std::list<StateSignal> listenerQueue;
 	std::list<StateSignal> motorQueue;

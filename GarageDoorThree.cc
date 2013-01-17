@@ -9,15 +9,16 @@
 #include <iostream>
 #include <pthread.h>
 #include <sys/neutrino.h>
+#include <unistd.h>
 
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "ControllerStateMachine.h"
 #include "InputInterface.h"
 #include "ManualInput.h"
 #include "HardwareInput.h"
-
-
-#define SIMULATED false
 
 using namespace std;
 
@@ -26,20 +27,21 @@ ManualInput* runSimulated(ControllerStateMachine *machine){
 }
 
 HardwareInput* runHardware(ControllerStateMachine *machine){
-	if ( ThreadCtl(_NTO_TCTL_IO, NULL) == -1) {
-		perror("Failed to get I/O access permission");
-		return NULL;
-	}
-
 	return new HardwareInput(machine);
-
 }
 
 
 int main(int argc, char *argv[]) {
+	bool simulated = false;
+	//bool simulated = (argc > 1 && argv[1] == "-s");// TODO: Make this flag check work
+	if (simulated){
+		cout << "Running Simulated" << endl;
+	}
+	else{
+		cout << "Running on hardware" << endl;
+	}
 
-	bool simulated = SIMULATED;
-	ControllerStateMachine *csm = new ControllerStateMachine;
+	ControllerStateMachine *csm = new ControllerStateMachine(simulated);
 	InputInterface *input;
 	if (simulated){
 		input = runSimulated(csm);
@@ -49,7 +51,12 @@ int main(int argc, char *argv[]) {
 	if (input == NULL){
 		return 1;
 	}
+
+
+
 	input->readInput();
+
+//	sleep(5);
 
 	cout << "End simulation" << endl;
 

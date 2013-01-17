@@ -12,12 +12,13 @@
 #include "StateSignal.h"
 #include "MotorState.h"
 #include "ControllerStateMachine.h"
+#include "MotorInterface.h"
 
 class MotorState;
 class ControllerStateMachine;
 
-class MotorStateMachine {
-bool running;
+class MotorStateMachine: public MotorInterface {
+	bool running;
 
 public:
 	MotorStateMachine();

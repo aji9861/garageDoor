@@ -11,8 +11,16 @@
 #include "InputInterface.h"
 #include "ControllerStateMachine.h"
 
+#include <stdint.h>
+#include <sys/mman.h>
+#include <sys/neutrino.h>
+
+
 class HardwareInput: public InputInterface {
 	ControllerStateMachine *csm;
+	uintptr_t ctrlHandle;
+	uint8_t curValues;
+
 public:
 	HardwareInput(ControllerStateMachine *machine);
 	void readInput();
