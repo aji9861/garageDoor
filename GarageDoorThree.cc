@@ -22,18 +22,9 @@
 
 using namespace std;
 
-ManualInput* runSimulated(ControllerStateMachine *machine){
-	return new ManualInput(machine);
-}
-
-HardwareInput* runHardware(ControllerStateMachine *machine){
-	return new HardwareInput(machine);
-}
-
 
 int main(int argc, char *argv[]) {
-	bool simulated = false;
-	//bool simulated = (argc > 1 && argv[1] == "-s");// TODO: Make this flag check work
+	bool simulated = (argc > 1 && strcmp(argv[1], "-s") == 0);
 	if (simulated){
 		cout << "Running Simulated" << endl;
 	}
@@ -44,9 +35,9 @@ int main(int argc, char *argv[]) {
 	ControllerStateMachine *csm = new ControllerStateMachine(simulated);
 	InputInterface *input;
 	if (simulated){
-		input = runSimulated(csm);
+		input = new ManualInput(csm);
 	} else{
-		input = runHardware(csm);
+		input = new HardwareInput(csm);
 	}
 	if (input == NULL){
 		return 1;

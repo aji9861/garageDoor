@@ -12,6 +12,7 @@
 #include "StateSignal.h"
 #include "State.h"
 #include "MotorInterface.h"
+#include <pthread.h>
 
 class MotorInterface;
 
@@ -29,6 +30,7 @@ private:
 	bool running;
 	std::list<StateSignal> listenerQueue;
 	std::list<StateSignal> motorQueue;
+	pthread_mutex_t queueMutex;
 
 	void addMotorEvent(StateSignal s);
 	void startController();

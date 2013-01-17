@@ -24,6 +24,11 @@ class HardwareInput: public InputInterface {
 public:
 	HardwareInput(ControllerStateMachine *machine);
 	void readInput();
+	void sendCsm(StateSignal s);
+	uintptr_t getCtrlHandle();
+	uint8_t getCurValues();
+	void setCurValues(uint8_t v);
+
 };
 
 #endif /* HARDWAREINPUT_H_ */

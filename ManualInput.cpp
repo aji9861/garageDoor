@@ -17,7 +17,7 @@ ManualInput::ManualInput(ControllerStateMachine *machine){
 }
 
 
-void* getInput(void* csm){
+void* getKeyInput(void* csm){
 	char in;
 	while(!cin.eof()){
 		cin.get(in);
@@ -39,7 +39,7 @@ void* getInput(void* csm){
 void ManualInput::readInput(){
 	pthread_t input_t;
 
-	pthread_create(&input_t, NULL, getInput, csm);
+	pthread_create(&input_t, NULL, getKeyInput, csm);
 
 	pthread_join(input_t, NULL);
 

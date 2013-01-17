@@ -35,7 +35,7 @@ void MotorStateMachine::addListenerEvent(StateSignal s){
 void* runMotor(void* motor){
 	while (((MotorStateMachine *) motor)->isRunning()){
 		((MotorStateMachine *) motor)->checkMotor();
-		sleep(1);
+		usleep(500000);
 	}
 	return NULL;
 }
