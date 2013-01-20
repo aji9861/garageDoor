@@ -10,6 +10,7 @@
 
 class InputInterface {
 public:
+  /* read the input to the system */
 	virtual void readInput();
 };
 

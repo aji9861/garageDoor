@@ -12,7 +12,9 @@
 
 class ErrorMotorState: public MotorState {
 public:
+  /*constructor */
 	ErrorMotorState(MotorStateMachine *machine);
+	/* see MotorState.h for details on the methods below */
 	MotorState* acceptEvent(StateSignal s);
 	bool onEntry();
 	bool onExit();

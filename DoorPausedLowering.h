@@ -12,6 +12,7 @@
 
 class DoorPausedLowering: public State {
 public:
+  /* see State.h for details on teh methods below */
 	State* acceptEvent(StateSignal s);
 	StateSignal onEntry();
 	StateSignal onExit();

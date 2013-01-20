@@ -12,7 +12,9 @@
 
 class IdleMotorState: public MotorState {
 public:
+  /* constructor */
 	IdleMotorState(MotorStateMachine *machine);
+	/* see MotorState.h for details on the methods below */
 	MotorState* acceptEvent(StateSignal s);
 	bool onEntry();
 	bool onExit();

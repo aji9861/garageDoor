@@ -18,11 +18,15 @@ class MotorState;
 class ControllerStateMachine;
 
 class MotorStateMachine: public MotorInterface {
+  /* has the motor been turned on */
 	bool running;
 
 public:
+  /* constructor */
 	MotorStateMachine();
+	/* deconstructor */
 	~MotorStateMachine();
+  /* see MotorInterface.h for details on the methods below */	
 	void addListenerEvent(StateSignal s);
 	void startMotor();
 	bool isRunning();
@@ -35,9 +39,13 @@ public:
 
 
 private:
+  /* the current motor state */
 	MotorState *curState;
+	/* the queue for signals being sent to the motor */
 	std::list<StateSignal> motorQueue;
+	/* internal timer used to record the dorrs location */
 	int timer;
+	/* reference to the controller to send it signals */
 	ControllerStateMachine* csm;
 };
 
