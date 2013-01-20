@@ -12,10 +12,15 @@
 
 class State {
 public:
+  /* constructor */
 	State();
+	/* deconstructor */
 	virtual ~State();
+	/* accept statesignals to see if a state change is needed */
 	virtual State* acceptEvent(StateSignal s);
+	/* method called once the state is entered */
 	virtual StateSignal onEntry();
+	/* method called once the state is exited */
 	virtual StateSignal onExit();
 };
 

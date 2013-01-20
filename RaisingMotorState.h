@@ -12,9 +12,12 @@
 #include <pthread.h>
 
 class RaisingMotorState: public MotorState {
+/* timer used to determine the hight of the motor */
 pthread_t timer_t;
 public:
+  /* constructor */
 	RaisingMotorState(MotorStateMachine *machine);
+	/* see MotorState.h for details on the following */
 	MotorState* acceptEvent(StateSignal s);
 	bool onEntry();
 	bool onExit();

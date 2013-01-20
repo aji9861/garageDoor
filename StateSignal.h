@@ -8,6 +8,10 @@
 #ifndef STATESIGNAL_H_
 #define STATESIGNAL_H_
 
+/*
+ * The signal used in both the state machine and the motor.
+ * Previous name changed from Signal.h due to name space conflicts 
+ */
 enum StateSignal {
 	btn_push,
 	motor_overcurrent,
