@@ -17,16 +17,25 @@
 
 
 class HardwareInput: public InputInterface {
+  /* reference to the controller */
 	ControllerStateMachine *csm;
+	/* reference to purplebox memory */
 	uintptr_t ctrlHandle;
+	/* current vlaues of outputs from purplebox */
 	uint8_t curValues;
 
 public:
+  /* constructor */
 	HardwareInput(ControllerStateMachine *machine);
+	/* see InputInterface */
 	void readInput();
+	/* sends a signal to the controller */
 	void sendCsm(StateSignal s);
+	/* set the memory location of the purplebox */
 	uintptr_t getCtrlHandle();
+	/* get the outputs from the purplebox */
 	uint8_t getCurValues();
+	/* set the input values to the purplebox */
 	void setCurValues(uint8_t v);
 
 };

@@ -12,9 +12,12 @@
 #include "ControllerStateMachine.h"
 
 class ManualInput: public InputInterface {
+  /*reference to the controller */
 	ControllerStateMachine *csm;
 public:
+  /* constructor */
 	ManualInput(ControllerStateMachine *csm);
+	/* see InputInterface.h */
 	void readInput();
 private:
 
