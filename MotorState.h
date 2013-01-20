@@ -15,12 +15,18 @@ class MotorStateMachine;
 
 class MotorState {
 protected:
+  /* reference to the motorStateMachine */
 	MotorStateMachine *msm;
 public:
+  /* constructor */
 	MotorState(MotorStateMachine *machine);
+	/* deconstructor */
 	virtual ~MotorState();
+	/* accept signals to see if a state change is needed */
 	virtual MotorState* acceptEvent(StateSignal s);
+	/* method called when the state is entered */
 	virtual bool onEntry();
+	/*method called when the state is left */
 	virtual bool onExit();
 };
 
