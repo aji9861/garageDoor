@@ -12,3 +12,5 @@ A2-7  to 10 DIO B1  	Full closed
 A2-9  to 11 DIO B2		IR broken
 A2-11 to 12 DIO B3		Overcurrent
 A2-13 to 13 DIO B4		Remote push button
+
+USE BOARD 0445
