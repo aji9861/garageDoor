@@ -52,7 +52,7 @@ bool ControllerStateMachine::isRunning(){
 void* runController(void* controller){
 	while (((ControllerStateMachine*)controller)->isRunning()){
 		((ControllerStateMachine*)controller)->checkController();
-		usleep(100000);
+		usleep(50);
 	}
 	return NULL;
 }

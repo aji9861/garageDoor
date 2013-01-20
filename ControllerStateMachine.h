@@ -29,7 +29,6 @@ private:
 	MotorInterface *motor;
 	bool running;
 	std::list<StateSignal> listenerQueue;
-	std::list<StateSignal> motorQueue;
 	pthread_mutex_t queueMutex;
 
 	void addMotorEvent(StateSignal s);

@@ -21,7 +21,7 @@ HardwareInput::HardwareInput(ControllerStateMachine *machine) {
 	csm = machine;
 
 	if ( ThreadCtl(_NTO_TCTL_IO, NULL) == -1) {
-			perror("Failed to get I/O access permission");
+		perror("Failed to get I/O access permission");
 	}
 
 	ctrlHandle = mmap_device_io(IO_PORT_SIZE, CTRL_ADDRESS);
@@ -41,7 +41,7 @@ void* getBoardInput(void *obj){
 		uint8_t changed = curValues ^ newValues;
 
 		if(changed)
-			printf("Changed: %X\nNewValues:%X\n", changed);
+//			printf("Changed: %X\nNewValues:%X\n", changed);
 
 		if (changed & 0x01 && newValues & 0x01){
 			/* Door has reached full open */
@@ -73,7 +73,7 @@ void* getBoardInput(void *obj){
 			cout << "btn push" << endl;
 		}
 		self->setCurValues(newValues);
-		usleep(10000);
+		usleep(250000);
 
 	}
 
