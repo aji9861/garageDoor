@@ -13,6 +13,7 @@
 
 class DoorClosed: public State {
 public:
+  /* see State.h for details on the methods below */
 	State* acceptEvent(StateSignal s);
 	StateSignal onEntry();
 	StateSignal onExit();
